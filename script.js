@@ -45,6 +45,7 @@ function levelUp(){
     lv++;
     score.innerText=`Score: ${lv-1}`;
     userSeq=[];
+    h3.classList.remove("gameOver");
     h3.innerText=`Level ${lv}`;
     let nextTile=Math.floor(Math.random()*4);
     let nextCol=btns[nextTile];
@@ -60,7 +61,6 @@ function checkAns(idx){
     }
     else{
         h3.classList.add("gameOver");
-        setTimeout(()=>{h3.classList.remove("gameOver")},300);
         gameReset();
     }
 }
@@ -68,7 +68,7 @@ function checkAns(idx){
 //RESET GAME
 function gameReset(){
     if(highscore<lv-1){highscore=lv-1;}
-    h3.innerText=`Game over!\nYour score: ${lv-1} | Highscore: ${highscore}\nPress START to start again.`;
+    h3.innerText=`Game over!\nYour score: ${lv-1} | Highscore: ${highscore}\nPress START to play again.`;
     lv=0;
     start=false;
     startbtn.style.display="inline-block";
